@@ -1,12 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",        // Static HTML export → generates /out folder
+  distDir: "dist",         // Output to /dist instead of /out
   reactStrictMode: true,
   images: {
-    // Use unoptimized images on Cloudflare Pages (no image optimization server)
-    unoptimized: true,
+    unoptimized: true,     // Required for static export
   },
-  trailingSlash: false,
+  trailingSlash: true,     // Netlify needs this for clean URLs
 
   // Speed up compilation
   experimental: {
